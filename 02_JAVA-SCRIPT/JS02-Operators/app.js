@@ -313,6 +313,33 @@ const hisliDonusum = +"759"
 console.log(hisliDonusum); 
 console.log(typeof hisliDonusum); 
 
+
+//* toString() - sayiyi stringe cevirir
+
+const sayi123= 19;
+console.log(sayi123.toString());
+console.log(typeof sayi123.toString());
+
+// // Promptan alinan yas bilgisi 
+// const kullaniciYasiInput = prompt("Yasiniz: ");//terminalde calismaz prompt browser da consol da bak
+// console.log(typeof kullaniciYasiInput);
+
+// *toFixed() -> veriyi cikti olarak string verir
+let hassasSayi = 19.2324
+let yuvarlanmis = hassasSayi.toFixed(2)
+console.log(yuvarlanmis);
+console.log(typeof yuvarlanmis);
+
+// * =====================================
+// *     NULL , UNDEFINED ; NaN FARKLARI
+//* =========================================
+
+// * NULL -> kasitli olarak bos deger.
+
+const kullaniciFotografi = null;
+console.log(typeof kullaniciFotografi);
+
+
     
     
     
