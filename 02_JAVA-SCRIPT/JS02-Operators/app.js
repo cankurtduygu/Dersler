@@ -122,7 +122,45 @@ console.log(144**(1/2));
 console.log(Math.sqrt(144));
 
 
+// * =======================================================
+// *            KARŞILAŞTIRMA OPERATÖRLERİ
+// * =======================================================
 
+/* 
+   == (Eşit mi?) → Değer kontrolü (tip dönüşümü yapar)
+   === (Kesinkes eşit mi?) → Hem değer hem tip kontrolü
+   
+   Profesyonel kodlamada === kullanmak daha güvenlidir!
+*/
+
+// = -> assign (atama)
+// == -> comparision (karsilastirma)
+// === -> comparision with type (tipleriyle karsilastirma)
+
+const kullaniciYasi = 18;
+const girilenYas = '18'
+
+// alt + shift + arrows (copy line)
+console.log(kullaniciYasi == girilenYas); // sadece degere bakar (==)
+
+// alt + arrows (carry line)
+console.log(kullaniciYasi === girilenYas); // degerine ve tipine bakar (===)
+
+//* Dogru kullanim
+console.log(kullaniciYasi === Number(girilenYas)); // true
+
+
+// ---
+
+const minYas = 18;
+const userYas = 16;
+
+console.log(`18 yasindan buyuk mu veya esit mi ? ${userYas >= minYas }`);
+console.log(`18 yasindan kucuk mu ? ${userYas < minYas }`);
+
+// Esit degil kontrolu
+const urunStok = 20;
+console.log(`Urun stokta var mi ? ${urunStok !== 0}`);
 
     
     
