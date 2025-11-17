@@ -204,6 +204,23 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+       
+
+        .p1{
+            height: 50px;
+            width: 100vh;
+            text-align: center;
+            padding-top: 10px
+        }
+
+        .p2{
+            @extend .p1;
+        }
+
+        .p3{
+            @extend .p1;
+        }
+        
 
         @for $i from 1 through 3 {
             .p#{$i} {

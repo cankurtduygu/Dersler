@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn {
+  padding: 50px;
+  border-radius: 2px solid #ddd;
+  background-color: blue;
+}
+.btn:hover {
+  background-color: red;
+}
+
+.card1 {
+  background: blue;
+  color: black;
+  padding: 100px;
+}
+
+.card2 {
+  background: green;
+  color: gray;
+  padding: 50px;
+}
+
+.card3 {
+  background: pink;
+  color: yellow;
+  padding: 75px;
+}/*# sourceMappingURL=style.css.map */

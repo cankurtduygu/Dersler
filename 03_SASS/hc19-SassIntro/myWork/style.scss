@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//********************************************/
+//* Variable Declaration
+//********************************************/
+
+$bg-renk: #bb66ff;
+$font-aile: "Segoe UI",
+Tahoma,
+Geneva,
+Verdana,
+sans-serif;
+$font-olcu: 1.2rem;
+$font-color: #333;
+$nav-bg-color: #007bff;
+$my-border: 2px solid #ddd;
+$banner-bg-color: #0056b3;
+$button-bg-color: #28a745;
+$lightColor: #f8f9fa;
+
+$primary-color : red;
+$primary-bg:blue;
+
+.btn{
+    padding: 50px;
+    border-radius: $my-border;
+    background-color: $primary-bg;
+
+    &:hover{
+        background-color:$primary-color;
+    }
+}
+
+@mixin box ($bg, $color, $padding ){
+    background: $bg;
+    color: $color;
+    padding: $padding;
+}
+
+.card1{
+    @include box(blue,black,100px);
+}
+
+.card2{
+    @include box(green,gray,50px);
+}
+
+.card3{
+    @include box(pink , yellow,75px);
+}
