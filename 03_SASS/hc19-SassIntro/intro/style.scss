@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//********************************************/
+//* Variable Declaration
+//********************************************/
+
+$bg-renk: #bb66ff;
+$font-aile: "Segoe UI",
+Tahoma,
+Geneva,
+Verdana,
+sans-serif;
+$font-olcu: 1.2rem;
+$font-color: #333;
+$nav-bg-color: #007bff;
+$my-border: 2px solid #ddd;
+$banner-bg-color: #0056b3;
+$button-bg-color: #28a745;
+$lightColor: #f8f9fa;
+
+body {
+    background-color: $bg-renk;
+    font-family: $font-aile;
+    font-size: $font-olcu;
+    color: $font-color;
+}
+
+/* ---------------------------------- */
+/*               HEADER               */
+/* ---------------------------------- */
+
+header {
+    background-color: $nav-bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    img {
+        width: 80px;
+        border: $my-border;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            padding: 0.5rem;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            a {
+                text-decoration: none;
+                color: white;
+
+                &:hover {
+                    color: $font-color;
+                }
+            }
+        }
+    }
+}
+
+/* ---------------------------------- */
+/*               BANNER               */
+/* ---------------------------------- */
+.banner {
+    background-color:
+        $banner-bg-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    line-height: 1.5;
+
+    img {
+        width: 30%;
+        max-width: 400px;
+        min-width: 250px;
+    }
+
+    aside {
+        button {
+            background-color:
+                $button-bg-color;
+            color: $lightColor;
+            padding: 0.75rem 2rem;
+            border: none;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
+            font-weight: bold;
+            border-radius: 5px;
+
+            &:hover {
+                background-color: darken(red, 40%);
+                // background-color: red;
+                cursor: pointer;
+                transform: scale(0.97);
+            }
+        }
+
+    }
+}
+
+/* ------------------------------ */
+/*           CARDS               */
+/* ----------------------------- */
+
+//********** MIXINS********//
+
+@mixin myKutu($veri1, $veri2:blue) {
+    background-color: $veri1;
+    width: 25%;
+    height: 15rem;
+    border-radius: 1rem;
+    color: $veri2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    border: 2px solid red;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card1 {
+    @include myKutu(green, white)
+}
+
+.card2 {
+    @include myKutu(red)
+}
+
+.card3 {
+    @include myKutu(yellow, blue)
+}
+
+.card4 {
+    @include myKutu(maroon, skyblue)
+}
+
+/* ------------------------------ */
+/*           ARTICLES             */
+/* ----------------------------- */
+
+//********** EXTEND  ********//
+
+.articles {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.article1 {
+    background-color: gray;
+    width: 50%;
+    height: 10rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $lightColor;
+
+}
+
+.article2 {
+    @extend .article1;
+    background-color: yellowgreen;
+
+    color: blue;
+
+    font-size: 2rem;
+}
+
+/* ------------------ */
+/*        FOOTER     */
+/* ----------------- */
+//! FOR LOOP
+//*************************
+
+//***********************************************
+//! IF-ELSE
+//************************************************
+
+footer {
+    $takim: "GS", "FB", "BJK";
+
+    .p{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @for $i from 1 through 3 {
+            .p#{$i} {
+                @if nth($takim,$i)=="GS" {
+                    background-color: red;
+                    color: yellow;
+                }
+
+                @else if nth($takim,$i)=="FB" {
+                    background-color: yellow;
+                    color: blue;
+                }
+
+                @else {
+                    background-color: black;
+                    color: white;
+                }
+
+
+            }
+
+
+
+        }
+    }
+
+
+    .social-icons {
+        display: flex;
+        height: 10rem;
+        $textRenk: #990000, #55004e, #0fa8a1, #dcacf1, #64c217;
+        $border: #990000, #55004e, #0fa8a1, #dcacf1, #64c217;
+
+        @for $i from 1 through 5 {
+            .social#{$i} {
+                width: 20%;
+                background-color: lighten(blue, $i*5%);
+                font-size: $i * 1rem;
+                color: nth($textRenk, $i);
+                border: $i * 1px solid nth($border, $i);
+            }
+
+        }
+
+    }
+}
