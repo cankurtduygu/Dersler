@@ -13,3 +13,31 @@
     background-position: center;
     
 }
+
+@mixin ekran-xs{
+
+    @media screen and (min-width: 0px) {
+  @content;
+}
+}
+
+
+@mixin ekran-sm {
+    @media screen and (min-width: 576px) {
+  @content;
+}
+}
+
+
+@mixin ekran-md {
+    @media screen and (min-width: 768px) {
+  @content;
+}
+}
+
+@mixin ekran-lg{
+    @media screen and (min-width: 1024px) {
+  @content;
+}
+}
+
