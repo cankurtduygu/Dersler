@@ -1,3 +1,44 @@
 //*****************************************************
 //*   CONTACT PAGE
 //*****************************************************
+@use "../abstracts/mixins";
+@use "../abstracts/variables";
+
+.contact-bgImg-container {
+  @include mixins.bgResim(100vh, variables.$pathname1);
+
+  .nav {
+    height: 40vh;
+  }
+}
+
+.contact{
+
+   height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+h2{
+  font-size:3rem;
+  margin-bottom: 2rem;
+  color:variables.$secondary-color;
+}
+
+&__list{
+   display: flex;
+    flex-wrap: wrap;
+    font-size: 1.3rem;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.text-secondary{
+  color:variables.$secondary-color;
+}
+
+}
