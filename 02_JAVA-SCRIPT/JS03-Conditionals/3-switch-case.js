@@ -243,13 +243,13 @@
 // console.log(sayi%2==0 ? "sayi ciftir" :"sayi tektir");
 
 
-"use strict";
+// "use strict";
 
-x=5;
+// x=5;
 
-if(x>4){
-    console.log("false");
-}
+// if(x>4){
+//     console.log("false");
+// }
 
 
 
