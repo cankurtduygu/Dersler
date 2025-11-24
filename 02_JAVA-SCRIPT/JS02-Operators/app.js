@@ -242,7 +242,7 @@ console.log("===False Boolean Degerler===");
 console.log(`Boolean(0) ${Boolean(0)}`);
 console.log(`Boolean(null) ${Boolean(null)}`);
 console.log(`Boolean(undefined) ${Boolean(undefined)}`);
-console.log(`Boolean('') ${Boolean('')}`);
+console.log(`Boolean('') ${Boolean("")}`);
 console.log(`Boolean(NaN) ${Boolean(NaN)}`); // gecersiz bir sayisal islem
 // console.log(0/0);
 
@@ -253,20 +253,20 @@ console.log(0 || 1);
 const varsayilanIsim = "" || "Misafir";
 console.log(`Hos geldin, ${varsayilanIsim}`);
 
-const kullaniciPuani = 0 || 85 || 100
+const kullaniciPuani = 0 || 85 || 100;
 console.log(`Puan: ${kullaniciPuani}`);
 
-const email = "" || null || 'user@test.com' || 'default@test.com'
+const email = "" || null || "user@test.com" || "default@test.com";
 console.log(`Email: ${email}`);
 
 //* && (VE) -> Ilk FALSE degerini dondurur (hepsi true is sonuncuyu doner)
 
 console.log(0 && 1);
 
-const hataliGiris = true && 0 && 'bu calismaz';
+const hataliGiris = true && 0 && "bu calismaz";
 console.log(`Hatali giris: ${hataliGiris}`);
 
-const girisBasarili = true && 'Token123' && "Giris yaptiniz";
+const girisBasarili = true && "Token123" && "Giris yaptiniz";
 console.log(`Basarili giris: ${girisBasarili}`);
 
 //* ! (DEGIL) -> Tersine cevirir
@@ -276,9 +276,8 @@ console.log(Boolean(!0));
 const kullaniciGirisYapti = false;
 console.log(`Giris yapilmadi mi ? ${!kullaniciGirisYapti}`);
 
-
 // * =======================================================
-// *               TİP DÖNÜŞÜMLERİ (Type Convertion)
+// *               TİP DÖNÜŞÜMLERİ (Type Conversion)
 // * =======================================================
 
 /* 
@@ -289,62 +288,69 @@ console.log(`Giris yapilmadi mi ? ${!kullaniciGirisYapti}`);
 */
 
 // Online alisveris sepeti
-let urun1Fiyat = '1500.50';
-let urun2Fiyat = '2300.90';
+let urun1Fiyat = "1500.50";
+let urun2Fiyat = "2300.90";
 
 // yanlis kullanim
 console.log(`Yanlis toplam: ${urun1Fiyat + urun2Fiyat}`);
 
 //* Number()
 // dogru kullanim
-const toplamFiyat = Number(urun1Fiyat) + Number(urun2Fiyat)
+const toplamFiyat = Number(urun1Fiyat) + Number(urun2Fiyat);
 console.log(`Dogru toplam: ${toplamFiyat}`);
 
 //* parseInt() - tam sayiya ceviri
-console.log(parseInt('123.99')); // ondalik kismi atar
-console.log(parseInt('123abc')); // rakamlardan sonrasini atar
+console.log(parseInt("123.99")); // ondalik kismi atar
+console.log(parseInt("123abc")); // rakamlardan sonrasini atar
 
 //* parseFloat() - ondalikli sayiya cevirir
-console.log(parseFloat('123.99243')); 
-console.log(parseFloat('123abc')); 
+console.log(parseFloat("123.99243"));
+console.log(parseFloat("123abc"));
 
 //* + operatoru - hizli donusum
-const hisliDonusum = +"759"
-console.log(hisliDonusum); 
-console.log(typeof hisliDonusum); 
-
+const hisliDonusum = +"759";
+console.log(hisliDonusum);
+console.log(typeof hisliDonusum);
 
 //* toString() - sayiyi stringe cevirir
-
-const sayi123= 19;
+const sayi123 = 19;
 console.log(sayi123.toString());
 console.log(typeof sayi123.toString());
 
-// // Promptan alinan yas bilgisi 
-// const kullaniciYasiInput = prompt("Yasiniz: ");//terminalde calismaz prompt browser da consol da bak
-// console.log(typeof kullaniciYasiInput);
+// Promtan alinan yas bilgisi
+const kullanicinYasiInput = Number(prompt("Yasiniz: ")); // promptan gelen veriler her zaman stringdir
+console.log(typeof kullanicinYasiInput);
 
-// *toFixed() -> veriyi cikti olarak string verir
-let hassasSayi = 19.2324
-let yuvarlanmis = hassasSayi.toFixed(2)
+//* toFixed() -> veriyi cikti olarak string verir
+let hassasSayi = 19.2324;
+let yuvarlanmis = hassasSayi.toFixed(2);
+// let yuvarlanmis = +hassasSayi.toFixed(2)
 console.log(yuvarlanmis);
 console.log(typeof yuvarlanmis);
 
-// * =====================================
-// *     NULL , UNDEFINED ; NaN FARKLARI
-//* =========================================
+// Tekrardan sayiya cevir
+let yenidanSayi = +yuvarlanmis;
+console.log(typeof yenidanSayi);
 
-// * NULL -> kasitli olarak bos deger.
+// * =======================================================
+// *          NULL, UNDEFINED, NaN FARKLARI
+// * =======================================================
 
+//* null -> kasitli olarak 'bos' deger.
 const kullaniciFotografi = null;
-console.log(typeof kullaniciFotografi);
+console.log(typeof kullaniciFotografi); 
+console.log(Boolean(kullaniciFotografi));
 
+//* undefined -> tanimlanmamis.
+let kullanicAdrsi;
+console.log(kullanicAdrsi);
+console.log(typeof kullanicAdrsi);
 
-    
-    
-    
+//* NaN -> gecersiz bir sayisal islem
+console.log(Number('Selam'));
+console.log(0 / 0); 
 
-
-
-
-
+// Karsilastirmalar
+console.log(null == undefined);
+console.log(undefined === null);
+console.log(null === null);
