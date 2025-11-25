@@ -1,77 +1,119 @@
-//! Girilen yilin yüzyilini veren program 1788 > 18.yüzyil
-// console.log("Hello World")
+//! Girilen yılın yüzyılını veren program 1788 > 18.yüzyıl
 
-// // Kullanıcıdan yıl al
-// let year = +prompt("Yili girin:");
+/*let year = +prompt("Yılı girin");
 
-// // let result = Math.trunc(year/100)+1
-// let result = Math.floor(year/100)+1 //noktadan sonraki deger kac olursa olsun zemine yuvarlar
-
-//! 1 den 10 a kadar sayilari yazdiralim
-
-//! 1-20 arasi tek sayilar
-
-// let i=0;
-// for(i=1;i<=20;i++){
-//     if(i%2 != 0){
-//         console.log(i); 
-//     }
-// }
-
-//! 1-15 sayilari yazdir ama 5 i atla contunieu bir kere kirar yani 5 i yazdirma dedik ya ondan dolayi sadece 5 icin döngüyü kirdi
-
-// let i=0;
-//  for(i=1;i<=15;i++){
-           
-//           if(i==5){
-//             continue;
-//           }
-
-//           console.log(i);
-// }
-
-//! 1-50 arasi YAZDIR 3 E BÖLÜNEN fizz 5 e bölünen buzz ikisina bölünü+yorsa fizz buzz
+// let result = Math.trunc(year/100)+1 //noktadan keser
+// let result = Math.floor(year/100)+1 // noktadan sonraki değer kaç olursa olsun zemine yuvarlar
+let result = Math.ceil(year/100) // noktadan sonraki değer kaç olursa olsun yukarı yuvarlar (0 hariç)
 
 
+console.log(result)
+*/
 
-//   for( let i=1;i<=50;i++){
+//! 1 den  10 a kadar sayıları yazdıralım
 
-//     if(i%3 ==0){
-//         console.log("fizz");
-//     } else if (i%5 ==0){
-//         console.log("buzz");
-//     } if(i%3 ==0 && i%5 ==0)
-//     {
-//         console.log("fizzbuzz");
-        
-//     }
-//     else{
-//         console.log(i);
-        
-//     }
-           
-           
-//  }
+/* for (let i = 1; i <= 10; i++){
+    console.log(i)
+} */
 
+//! 10 dan 1 e kadar sayıları yazdıralım
+/* let i = +prompt("sayı girin")
+for ( ; i >= 1; ){
+    console.log(i)
+    i--
+} */
 
-//! 1 den 30 a kadar rastgele sayi üret. 15 gelirse döngüden cik 
+//! 1-20 arası tek sayılar
 
-// let num = 1;
+/* for(let i = 1; i <=20; i++){
+    
+    if(i % 2 !== 0){
 
-// while (num) {
-//     var num = Math.ceil(Math.random()*30);
+        console.log(i)
+    }else{
+        console.log(i + " çift sayıdır")
+    }
+} */
 
-//     if(num == 15){
-//         console.log(num + "geldi");
-//         break
-//     }  else{
-//         console.log(num);
-//     } 
-// }
-//    console.log("döngüden cikildi");
+//! 1 den 15 a kadar sayıları yazdır ama 5 i atla
 
+/* for (let i = 1; i <= 15; i++){
+    
+    if (i == 5) {
+        continue //mevcut loop aşamasını atlar bir sonrakine geçer
+    }
 
+     if (i == 10) {
+        break // mevcut looptan çıkılmasını sağlar
+    }
+    console.log(i)
+}
 
+console.log("Döngüden çıkıldı") */
 
+//! 1 den 50 ye kadar sayıları yazdır. 3 bölünenlere fizz 5 e bölünenlere buzz
+//! hem 3 hem de 5 e bölünenlere fizzbuzz yaz
 
+/* for (let i = 1; i <= 50; i++){
+    
+    if (i % 3 == 0 && i % 5 == 0) {
+        console.log("fizzBuzz")
+    }else if (i % 3 == 0 ) {
+        console.log("fizz")
+    } else if (i % 5 == 0) {
+        console.log("buzz")
+    }else {
+        console.log(i)
+    }
    
+} */
+
+
+//! 1 den 30 a kadar rastgele sayı üret. 15 gelirse döngüden çık
+
+/* let num = 1
+
+ while (num) {
+
+    let num =  Math.trunc(Math.random()*30)+1
+       
+    if(num == 15){
+        let sonuc = num
+        console.log(sonuc + " Geldi")
+        break
+    }else{
+        console.log(num)
+    }
+    
+} 
+console.log("döngüden çıkıldı", num)
+ */
+
+//! JS hoisting
+
+/* console.log(a)
+var a = 1;
+
+console.log(aa)
+let aa;
+
+aa = 2
+console.log("dışarıda",aa)
+const aaa = 1
+
+/* console.log(aa)
+console.log(aaa)
+console.log("devam")
+ */
+// var a = 2
+
+
+// let aa = 5
+
+/* { //ayrı bir scope açıp kullanabiliriz
+    console.log("scope içi", aa)
+    
+}
+
+console.log("dışarıda",aa)  */
+
