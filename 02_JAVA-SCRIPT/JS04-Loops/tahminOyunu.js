@@ -76,36 +76,44 @@
 //* kullanıcıya oyuna devam etmek istermisin diye soralım, kullanıcı e tuşuna basarsa, oyun baştan kurulsun, herşey tekrarlansın
 
 
-const rastgelePc = Math.ceil(Math.random() * 20);
+// const rastgelePc = Math.ceil(Math.random() * 20);
 
-console.log(rastgelePc);
-let hak = 5;
-let devamMi;
+// console.log(rastgelePc);
+// let hak = 5;
+// let devamMi;
 
-do {
+// do {
 
-    while (hak > 0) {
-        const tahmin = +prompt("sayı tahmin ediniz");
-        hak--;
+//     while (hak > 0) {
+//         const tahmin = +prompt("sayı tahmin ediniz");
+//         hak--;
 
-        if (rastgelePc == tahmin) {
-            console.log("tebrikler bildiniz🥳");
+//         if (rastgelePc == tahmin) {
+//             console.log("tebrikler bildiniz🥳");
 
-            break;
+//             break;
 
-        } else if (rastgelePc > tahmin) {
-            console.log("ARTTIR 📈");
-            console.log(hak + "hakkınız kaldı");
-        } else {
-            console.log("AZALT📉");
+//         } else if (rastgelePc > tahmin) {
+//             console.log("ARTTIR 📈");
+//             console.log(hak + "hakkınız kaldı");
+//         } else {
+//             console.log("AZALT📉");
 
-            console.log(`${hak} hakkınız kaldı`);
-        }
-    }
+//             console.log(`${hak} hakkınız kaldı`);
+//         }
+//     }
 
-    if (hak == 0)
-        console.log("üzgünüz bilemediniz");
-    devamMi = prompt("devam temek ister misiniz, evetse e ye basin")
+//     if (hak == 0)
+//         console.log("üzgünüz bilemediniz");
+//     devamMi = prompt("devam temek ister misiniz, evetse e ye basin")
 
-} while (devamMi.toUpperCase() = "e");
+// } while (devamMi.toUpperCase() = "e");
+
+// console.log(name); // undefined
+
+
+// console.log(ad);
+// let ad = "Duygu";
+
+
 

@@ -105,12 +105,12 @@
     
 //? ORNEK2: klavyeden q karakteri girilene kadar sayı girişi yapan bir programı döngü kullanarak yazınız.
 
-let sayi;
-do {
-    sayi = prompt("lütfen bir sayi gir");
+// let sayi;
+// do {
+//     sayi = prompt("lütfen bir sayi gir");
     
-} while (sayi.toUpperCase() !="Q");
+// } while (sayi.toUpperCase() !="Q");
 
-console.log("program bitti");
+// console.log("program bitti");
 
 
