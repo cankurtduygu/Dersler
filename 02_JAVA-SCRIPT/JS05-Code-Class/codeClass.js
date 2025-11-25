@@ -70,8 +70,7 @@
 // }
 //    console.log("döngüden cikildi");
 
-console.log(a)
-var a=5;
+
 
 
 
