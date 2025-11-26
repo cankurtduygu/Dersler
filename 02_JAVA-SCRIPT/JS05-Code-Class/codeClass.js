@@ -89,6 +89,35 @@ console.log("Döngüden çıkıldı") */
 console.log("döngüden çıkıldı", num)
  */
 
+//! do while ile 1 den 30a kadar sayi üret. 15 gelirsa döngüden cik
+/*let num=0;
+
+do {
+
+    let num = Math.trunc(Math.random()*30)+1 
+     if( num==15){
+        console.log(num + " Geldi");
+        break 
+     }else{
+        console.log(num);        
+     }
+    
+} while (num);// sart false döngüden cikar
+
+console.log("döngüden cikildi",num) */
+
+
+
+
+
+
+
+
+
+
+
+
+
 //! JS hoisting
 
 /* console.log(a)
@@ -116,4 +145,35 @@ console.log("devam")
 }
 
 console.log("dışarıda",aa)  */
+
+
+// let sayi = +prompt("sayi gir");
+// let sayac=0;
+
+// for(let i=1; i<sayi;i++){
+//     if(sayi%i ==0 ){
+//         sayac++;  
+//         console.log(i);      
+//     }
+// }
+// console.log(sayac);
+
+
+// let sayi = +prompt("sayi gir");
+// let color = '';
+
+
+// for(let i = 1; i<sayi;i++){
+//     if(i % 2 ==0 ){ 
+//         color = "color:yellow; font-size:16px;" 
+//         console.log("%c" + i, " " +"cift sayi", color);      
+//     }else {
+//         color = "color:red; font-size:20px;" 
+//         console.log(i, "tek sayi");  
+//     }
+// }
+
+
+
+
 
