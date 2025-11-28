@@ -29,23 +29,23 @@
  
 //* örnek3
 
-const vize = 40;
-const final =70;
+// const vize = 40;
+// const final =70;
 
-let sonuc = vize*0.4+final*0.6;
+// let sonuc = vize*0.4+final*0.6;
 
-// sonuc>55 ? console.log("gectin") : console.log("kaldin");
+// // sonuc>55 ? console.log("gectin") : console.log("kaldin");
 
-console.log(sonuc>55 ? "gectiniz" : "kaldiniz");
+// console.log(sonuc>55 ? "gectiniz" : "kaldiniz");
 
-// 85 den yüksek ise pek iyi 
+// // 85 den yüksek ise pek iyi 
 
-console.log(sonuc>85 ? "cok iyi" : sonuc>55 ? "iyi" : "basarisiz" );
+// console.log(sonuc>85 ? "cok iyi" : sonuc>55 ? "iyi" : "basarisiz" );
 
 
-const maas = 2000;
-const borc= 10000;
-console.log(maas*10>5000 ? "kredi al" :"alma");
+// const maas = 2000;
+// const borc= 10000;
+// console.log(maas*10>5000 ? "kredi al" :"alma");
 
 
 
