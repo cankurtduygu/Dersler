@@ -53,22 +53,7 @@
 
 
 
-const artikYil= function (yil) {
-    if(yil%4==0){
-        if(yil%100!==0){
-            console.log("artik yildir");
-        }
-        else if(yil%400==0){
-            console.log("artik yil");  
-        }
-        }
-        else{
-            console.log("artik yil degil");
-        }
-         
-    }
 
-    artikYil(prompt("yil giriniz"));
 
 
 
