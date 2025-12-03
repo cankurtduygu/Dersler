@@ -158,14 +158,16 @@ console.log(uzunluk);
 
 
 //! MAP() - SORU 3 (ZİNCİRLEME)
+/*
 const hamNotlar = [45, 78, 92, 33, 88, 67, 55, 90, 41, 73];
 
-const yeni = hamNotlar.filter((sayi)=> sayi>=50).map((item)=> item+=10).map((say)=> say>100 ? say=100:null).map((num)=>{
-    if(num>=90 && num<=100) num = "A"
-    else if(num<=89 && num>=80) num = "B"
-    else if(num<=79 && num>=70) num = "C"
-    else if(num<=69 && num>=60) num = "D"
-    else num = "E"
+const yeni = hamNotlar.filter((sayi)=> sayi>=50).map((item)=> item+10).map((say)=> say>100 ? say=100 : say).map((num)=>{
+    if(num>=90 ) return num = "A"
+    else if(num>=80) return num = "B"
+    else if(num>=70) return num = "C"
+    else if(num>=60) return num = "D"
+    else return num = "E"
 })
 
-console.log(yeni);
+console.log(yeni);*/
+

@@ -208,6 +208,7 @@ const gecenelereBonus = puanlar
 *      6. Reduce (accumulator pattern)
 /* -------------------------------------- *
 
+
 // reduce(callback(acc, current, index, array), initialAcc)
 // Kullanım Alanları:
 // - Toplam alma
