@@ -208,13 +208,9 @@ console.log((people.reduce((toplam, eleman1) => toplam + eleman1.age, 0) / peopl
 
 // (people.reduce((toplam, eleman1) =>  toplam + eleman1.age) / people.length).toFixed(2)
 
-
-
-
 //?nested objects
 
 const INSANLAR = {
-
 
     kisi1: {
         name: "Duygu",
@@ -242,9 +238,6 @@ const INSANLAR = {
         salary: "150000",
         drivingLicense: true
     }
-
-
-
 }
 
 console.log()
