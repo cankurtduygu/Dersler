@@ -338,22 +338,25 @@ console.log(cift);
 
 //? SORU1.Parametre olarak bir pozitif sayı alacak.
 //? ßu fonksiyon, 1'den o sayıya kadar olan tüm sayıların toplamını recursive yöntemle hesaplayacak.
+
+
 /*
 const topla = (sayi) => {
-    if(sayi <= 0) return 0;  // Base case (durma koşulu)
+    if(sayi == 1) return 1;  // Base case (durma koşulu)
     return sayi + topla(sayi - 1);
 }
 
 console.log(topla(5));  // 15 (5+4+3+2+1)
 */
+
+
 //? SORU2. Parametre olarak iç içe geçmiş (nested) bir dizi alacak.
 //?Görevin, bu diziyi düzleştirip (flatten) tek seviyeli bir dizi hâline getirmek.
-
 /*
+
 function flatten(arr) {
     const result = [];
-
-    for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
         const eleman = arr[i];
 
         // Eğer eleman bir array ise, onu tekrar flatten ile aç
@@ -372,7 +375,26 @@ function flatten(arr) {
 
     return result;
 }
+*/
+/*
+console.log(flatten([1, [2, [3, 4], 5], 6]));
 
+const flatten = (arr) => {
+  let sonuc = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // eleman dizi ise, içine gir ve aç
+      sonuc = sonuc.concat(flatten(arr[i]));
+    } else {
+      // eleman dizi değilse direkt ekle
+      sonuc.push(arr[i]);
+    }
+  }
+  return sonuc;
+};
+
+*/
+/*
 // Test
 console.log(flatten([1, [2, [3, 4]], 5])); 
 // [1, 2, 3, 4, 5]
@@ -380,6 +402,7 @@ console.log(flatten([1, [2, [3, 4]], 5]));
 console.log(flatten([[1, 2], 3, [4, [5, 6]], 7]));
 // [1, 2, 3, 4, 5, 6, 7]
 */
+
 
 //?SORU3: İç içe dizideki TÜM sayıların toplamını bul
 /*
@@ -400,7 +423,9 @@ const sumNested = (dizi) => {
 
     return toplam;
 };
+*/
 
+/*
 console.log(sumNested([1, [2, 3], [4, [5, 6]], 7])); // 28
 
 // Çıktı: 28
@@ -409,12 +434,13 @@ console.log(sumNested([1, [2, 3], [4, [5, 6]], 7])); // 28
 //? SORU4.Parametre olarak pozitif bir sayı alacak.
 //Bu fonksiyon sayıyı stringe çevirmeden, tamamen matematiksel işlemlerle tersine çevirip döndürecek.
 /*
+
 function reverseNumber(n) {
-    let ters = 0;
+    let yeni = 0;
 
     while (n > 0) {
         let sonRakami = n % 10;        // son rakamı al
-        ters = ters * 10 + sonRakami;  // yeni sayıya ekle
+        yeni = yeni * 10 + sonRakami;  // yeni sayıya ekle
         n = Math.floor(n / 10);        // son rakamı sil
     }
 
@@ -426,7 +452,8 @@ console.log(reverseNumber(9005));  // 5009
 console.log(reverseNumber(707));   // 707
 */
 
-//?Bir sayının basamak sayısını bul (string kullanmadan!)
+
+//? SORU5:Bir sayının basamak sayısını bul (string kullanmadan!)
 /*
 function countDigits(n) {
     let sayac = 0;
@@ -444,6 +471,131 @@ console.log(countDigits(45));       // 2
 console.log(countDigits(1234));     // 4
 console.log(countDigits(500009));   // 6
 */
-//?Bir sayının en büyük rakamını bul (string yok, array yok!)
+//? SORU6: 
+/*
+Bir fonksiyon yaz: countDownAndUp(n)
+
+Görev:
+
+Bu fonksiyon:
+
+n’den 1’e kadar geriye doğru tüm sayıları recursive olarak yazdırsın.
+
+1’e ulaştığında durmasın; bu kez 1’den tekrar n’e kadar ileri doğru sayıları recursive olarak yazdırsın.
+
+Fonksiyon sadece console.log kullansın, başka hiçbir return veya veri yapısı yok.
+
+*/
+/*
+function countDownAndUp(n) {
+  console.log(n);
+
+  // Geriye doğru git (base case: 1)
+  if (n > 1) {
+    countDownAndUp(n - 1);
+  }
+
+  // Geri dönüşte ileri say (1'i tekrar yazmamak için kontrol)
+  if (n > 1) {
+    console.log(n);
+  }
+}
+
+countDownAndUp(4);*/
 
 
+//?SORU7 Bir sayının rakamlarının faktöriyelleri toplamını hesaplayan fonksiyon
+/*
+// Bir sayının faktöriyelini hesaplayan fonksiyon (döngü ile)
+function factorial(n) {
+  let result = 1;
+  let i = 1;
+  while (i <= n) {
+    result = result * i;
+    i = i + 1;
+  }
+  return result;
+}
+
+// Bir sayının rakamlarının faktöriyelleri toplamını hesaplayan fonksiyon
+function sumOfDigitFactorials(n) {
+  let temp = n;
+  let sum = 0;
+
+  while (temp > 0) {
+    let digit = temp % 10;      // son rakam
+    sum = sum + factorial(digit);
+    temp = (temp - digit) / 10; // integer division
+  }
+
+  return sum;
+}
+  */
+
+//?SORU8 : Sayı Parçalama ve Yeniden Oluşturma” Algoritması
+/*
+Algoritma nasıl çalışmalı?
+
+Sayının en küçük rakamını bul.
+
+Onu ilk sıraya koy.
+
+Kalan sayıdan o rakamı çıkar ve aynı işlemi tekrar et.
+
+Tüm rakamlar bitince yeni sıkıştırılmış sayıyı oluştur.
+
+Fonksiyon bu yeni sayıyı döndürsün.
+*/
+/*
+Adım adım:
+- Rakamlar: 4,2,1,7
+- En küçük = 1
+- Kalan = 427
+- En küçük = 2
+- Kalan = 47
+- En küçük = 4
+- Kalan = 7
+- En küçük = 7
+→ Sonuç = 1247
+*/
+
+
+//? SORU9. Bir fonksiyon yaz: Verilen iki sayıyı toplayıp sonucu bir önceki sonuçla toplayarak döndürsün.
+// 
+/*
+function sumChain() {
+  let previous = 0; // önceki sonuç burada saklanıyor
+
+  return function(a, b) {
+    const current = a + b;       // şu anki iki sayının toplamı
+    const result = previous + current; // önceki + şimdiki
+    previous = result;           // sonraki sefer kullanmak için güncelle
+    return result;
+  }
+}
+
+// fonksiyonu kullanıma hazır hale getirelim
+const sum = sumChain();
+
+console.log(sum(3, 5)); // 8
+console.log(sum(2, 4)); // 14
+console.log(sum(1, 1)); // 16
+
+*/
+//? 10 Kendi iç sayacını tutan ve her çağrıldığında 1 artırıp döndüren bir fonksiyon yaz:
+/*
+function createCounter() {
+  let count = 0; // dış fonksiyonda saklanan değişken
+
+  return function() {
+    count++;     // her çağrıda artır
+    return count;
+  }
+}
+
+const counter = createCounter();
+
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+*/
