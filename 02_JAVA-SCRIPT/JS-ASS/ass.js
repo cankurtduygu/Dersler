@@ -1,22 +1,22 @@
 //* artikyil hesaplayan func.
-  /*
+/*
 const artikYil= function (yil) {
 
-        if (yil%4 == 0){
-            if(yil%100 ==0){
-                if(yil%400 ==0){
-                    console.log("artik yildir hem 100'e hem 400'e bölündü😉");
-                } else {
-                    console.log("artik yil degildir 100'e bölündü ama 400'e bölünmedi✔️");  
-                        }
-            } else {
-                console.log("artik yildir 4 e bölündü 100e bölünmedi❌");
-                    }  
-        }else{
-            console.log("artik yil degildir 4 e bölünmedi ✖️");
-            
-        }
-    }
+      if (yil%4 == 0){
+          if(yil%100 ==0){
+              if(yil%400 ==0){
+                  console.log("artik yildir hem 100'e hem 400'e bölündü😉");
+              } else {
+                  console.log("artik yil degildir 100'e bölündü ama 400'e bölünmedi✔️");  
+                      }
+          } else {
+              console.log("artik yildir 4 e bölündü 100e bölünmedi❌");
+                  }  
+      }else{
+          console.log("artik yil degildir 4 e bölünmedi ✖️");
+          
+      }
+  }
 
 artikYil(prompt("yil giriniz"));
 
@@ -62,11 +62,11 @@ console.log(üsAl(5,3));
 //     let acilisücret =50;
 //     let kmÜcret = 15;
 //     let toplamücret=0;
-    
+
 //     mesafe > 10 ? toplamücret= acilisücret + (kmÜcret* 10 + ((mesafe-10)*(kmÜcret-(kmÜcret*0.2)))) : toplamücret= acilisücret + (kmÜcret * mesafe);
 
 //     yolcuSayisi > 3 ? toplamücret+=50 : toplamücret+=0;
-    
+
 
 //     return toplamücret;
 
@@ -74,12 +74,376 @@ console.log(üsAl(5,3));
 
 // console.log(taksiÜcretHesapla(15,3));
 
+//?SORU 1 - Kolay (Function + For Döngüsü)
+/*
+let toplam = 0;
+const topla = (sayi)=>{
+    for(let i =1; i<=sayi; i++){
+        i % 2 == 0 ? toplam+=i : null;
+    }
+    
+    return toplam;
+}
 
 
+console.log(topla(5));
+*/
+//?SORU 2 - Orta (Arrow Function + While)
+/*
+const faktoriyel = (sayi) => {
+    let sonuc = 1;
+    while(sayi > 0) {
+        sonuc *= sayi--;  // Kısaltılmış: çarp ve azalt
+    }
+    return sonuc;
+}
+
+console.log(faktoriyel(3));   // 6
+// console.log(faktoriyel(5));   // 120
+// console.log(faktoriyel(10));  // 3628800
+
+//*recursive ile
+const faktoriyel2 = (sayi) => 
+    sayi <= 1 ? 1 : sayi * faktoriyel(sayi - 1);
+
+console.log(faktoriyel(5));  // 120
+*/
+
+//?soru3 - Array icinde en büyük sasiyi bulma
+/*
+const numbers = [12, 5, 33, 7, 42, 19, 1, 42];
+
+let büyük = numbers[0];
+
+for(let i=1;i<numbers.length;i++){
+    if(numbers[i]>büyük){
+        büyük= numbers[i];
+    }
+}
+console.log(büyük);
+
+//*while ile yazimi
+
+let i = 1;
+while(i < numbers.length) {
+    if(numbers[i] > büyük) {
+        büyük = numbers[i];
+    }
+    i++;
+}
+*/
+
+//? soru4 - carpim tablosu (1 den 10 a kadar)
+/*
+for(let i=1;i<=10;i++){
+    for(let j=1; j<=10;j++)
+        console.log(`${i} * ${j} =`,i*j);
+        
+}
+*/
+
+//? soru5 - sayinin tek ve cift sayisini sayma
+/*
 
 
+let sayi = 16;
+let birler = 0;
+let cift=0;
+let tek=0;
 
 
+while(sayi > 0){
+birler = sayi%10;
+
+if(birler%2==0) {
+    cift++
+}else{ tek++}
+
+sayi = Math.floor(sayi/10);
+}
 
 
-   
+console.log("Tek:", tek);
+console.log("Çift:", cift);
+
+*/
+
+//? soru6  tersine yazdirma text="Merhaba"
+/*
+let text = "Merhaba";
+let yeni = "";
+
+for(let i = text.length - 1; i >= 0; i--){
+    yeni += text[i];  // += ile ekliyoruz
+}
+
+console.log(yeni);  // "abahreM"
+ */
+
+//? cift sayilari yazdirma 0 ile 50 arasindaki sayilar
+/*
+for(let i=0; i<=50; i+=2){
+    console.log(i);
+}
+
+*/
+
+//?7)  Minimum Değer Bulma Bir dizideki en küçük değeri while döngüsü ile bulun.
+/*
+const numbers = [12, 5, 33, 7, 42, 19, 1, 42];
+
+let kucuk = numbers[0];
+let i = 1;
+
+while(i < numbers.length){
+    if(numbers[i] < kucuk){
+        kucuk = numbers[i];
+    }
+    i++;
+}
+
+console.log(kucuk);
+*/
+//? soru 8 asal sayilar 1-100 arasi
+/*
+for(let sayi = 2; sayi <= 100; sayi++){
+    let asalMi = true;
+    
+    for(let bolen = 2; bolen < sayi; bolen++){
+        if(sayi % bolen == 0){
+            asalMi = false;
+            break;  // Bölen bulunca döngüden çık
+        }
+    }
+    
+    if(asalMi){
+        console.log(sayi);
+    }
+}
+*/
+
+//? soru 9 faktöriyel do-while ile hesaplama
+
+/*
+const faktoriyel = (sayi) => {
+    let sonuc = 1;
+    do {
+        sonuc *= sayi--;
+    }
+    while (sayi > 0);  // ← noktalı virgül ekledik
+
+    return sonuc;
+}
+
+console.log(faktoriyel(5));   // 120
+*/
+//? girilen sayinin basamaklari toplami tek mi cift mi
+/*
+let sayi = 12345678;
+let birler = 0;
+let toplam = 0;
+
+while(sayi > 0){
+    birler = sayi % 10;
+    toplam += birler;  // ← basamakları topluyoruz
+    sayi = Math.floor(sayi / 10);
+}
+
+if(toplam % 2 == 0){
+    console.log(`Basamaklar toplamı ${toplam} - ÇİFT`);
+} else {
+    console.log(`Basamaklar toplamı ${toplam} - TEK`);
+}
+*/
+
+//? En Uzun Artan Alt Dizi (Longest Increasing Sequence)
+/*
+const arr2 = [5, 1, 2, 3, 0, 4, 5, 6];
+let gecici = [arr2[0]];  // İlk elemanla başla
+let enUzun = [];
+
+for(let i = 1; i < arr2.length; i++){
+    if(arr2[i] > arr2[i-1]){
+        gecici.push(arr2[i]);  // Artan sıra devam ediyor
+    } else {
+        if(gecici.length > enUzun.length){
+            enUzun = [...gecici];  // En uzunu sakla
+        }
+        gecici = [arr2[i]];  // Yeni dizi başlat
+    }
+}
+
+// Son diziyi de kontrol et
+if(gecici.length > enUzun.length){
+    enUzun = [...gecici];
+}
+
+console.log("En uzun artan dizi:", enUzun);  // [0, 4, 5, 6]
+*/
+/*
+const arr2 = [5, 1, 2, 3, 0, 4, 5, 6];
+let longest = 1;
+let current = 1;
+for (let i = 1; i < arr2.length; i++) {
+    if (arr2[i] > arr2[i - 1]) {
+        current++;
+        if (current > longest) longest = current;
+    } else {
+        current = 1;
+    }
+}
+console.log(longest); */
+
+//? En Uzun Artan Alt Dizi (Longest Increasing Sequence)
+
+//* bir sayi dizisi veriliyor dizideki en uzun artan ardisik artan alt dizinin uzunlugunu bulunuz
+
+/*
+const arr2 = [1,2,2,3,4,5,2,3,4,5,6,7];
+let longest = 1;
+let current = 1;
+for (let i = 1; i < arr2.length; i++) {
+    if (arr2[i] == (arr2[i - 1] + 1)) {
+        current++;
+        if (current > longest) longest = current;
+    } else {
+        current = 1;
+    }
+}
+console.log(longest);
+*/
+
+//* yinelenen eleman kontrolü
+/*
+const arr4 = [2, 2, 8, 12, 7, 5, 1];
+let cift = false;
+
+for(let i = 0; i < arr4.length; i++){
+    let j = 0;
+    while(j < arr4.length){
+        if(i !== j && arr4[i] === arr4[j]){
+            cift = true;
+            break;
+        }
+        j++;
+    }
+    if(cift) break;  // Bulununca dış döngüden de çık
+}
+
+console.log(cift);
+*/
+
+//! --- fonksiyonlar soru cözümü  -----
+
+
+//? SORU1.Parametre olarak bir pozitif sayı alacak.
+//? ßu fonksiyon, 1'den o sayıya kadar olan tüm sayıların toplamını recursive yöntemle hesaplayacak.
+/*
+const topla = (sayi) => {
+    if(sayi <= 0) return 0;  // Base case (durma koşulu)
+    return sayi + topla(sayi - 1);
+}
+
+console.log(topla(5));  // 15 (5+4+3+2+1)
+*/
+//? SORU2. Parametre olarak iç içe geçmiş (nested) bir dizi alacak.
+//?Görevin, bu diziyi düzleştirip (flatten) tek seviyeli bir dizi hâline getirmek.
+
+/*
+function flatten(arr) {
+    const result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        const eleman = arr[i];
+
+        // Eğer eleman bir array ise, onu tekrar flatten ile aç
+        if (Array.isArray(eleman)) {
+            const icDizi = flatten(eleman); // recursive çağrı
+
+            // icDizi içindeki elemanları tek tek result'a ekle
+            for (let j = 0; j < icDizi.length; j++) {
+                result.push(icDizi[j]);
+            }
+        } else {
+            // Eğer normal değer ise direkt ekle
+            result.push(eleman);
+        }
+    }
+
+    return result;
+}
+
+// Test
+console.log(flatten([1, [2, [3, 4]], 5])); 
+// [1, 2, 3, 4, 5]
+
+console.log(flatten([[1, 2], 3, [4, [5, 6]], 7]));
+// [1, 2, 3, 4, 5, 6, 7]
+*/
+
+//?SORU3: İç içe dizideki TÜM sayıların toplamını bul
+/*
+const sumNested = (dizi) => {
+    let toplam = 0;
+
+    for (let i = 0; i < dizi.length; i++) {
+        const eleman = dizi[i];
+
+        if (typeof eleman === "number") {
+            // normal sayıyı toplama ekle
+            toplam += eleman;
+        } else {
+            // sayı değilse, biz bunun yine bir dizi olduğunu varsayıyoruz
+            toplam += sumNested(eleman);
+        }
+    }
+
+    return toplam;
+};
+
+console.log(sumNested([1, [2, 3], [4, [5, 6]], 7])); // 28
+
+// Çıktı: 28
+*/
+
+//? SORU4.Parametre olarak pozitif bir sayı alacak.
+//Bu fonksiyon sayıyı stringe çevirmeden, tamamen matematiksel işlemlerle tersine çevirip döndürecek.
+/*
+function reverseNumber(n) {
+    let ters = 0;
+
+    while (n > 0) {
+        let sonRakami = n % 10;        // son rakamı al
+        ters = ters * 10 + sonRakami;  // yeni sayıya ekle
+        n = Math.floor(n / 10);        // son rakamı sil
+    }
+
+    return ters;
+}
+
+console.log(reverseNumber(1234));  // 4321
+console.log(reverseNumber(9005));  // 5009
+console.log(reverseNumber(707));   // 707
+*/
+
+//?Bir sayının basamak sayısını bul (string kullanmadan!)
+/*
+function countDigits(n) {
+    let sayac = 0;
+
+    while (n > 0) {
+        n = Math.floor(n / 10); // bir basamak sil
+        sayac++;                // basamak sayısını artır
+    }
+
+    return sayac;
+}
+
+console.log(countDigits(7));        // 1
+console.log(countDigits(45));       // 2
+console.log(countDigits(1234));     // 4
+console.log(countDigits(500009));   // 6
+*/
+//?Bir sayının en büyük rakamını bul (string yok, array yok!)
+
+
