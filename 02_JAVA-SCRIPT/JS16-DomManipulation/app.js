@@ -3,6 +3,7 @@ const baslik = document.getElementsByTagName("h1")[0]
 baslik.style.textAlign = "center";
 baslik.style.color = "red";
 
+
 const resim = document.querySelector(".resim")
 const telses = document.querySelector(".telses")
 

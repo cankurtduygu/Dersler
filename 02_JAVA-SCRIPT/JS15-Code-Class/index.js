@@ -34,120 +34,170 @@
 /* -------------------------------------- */
 
 /*
-  ! 1) Senaryo: Bir sınıftaki öğrencilerin sınav notlarının ortalamasını bul.
+  ! 1. Bir sınıftaki öğrencilerin sınav notlarının ortalamasını bul.
   
   Çözüm Yolları:
   1. for döngüsü
   2. reduce() metodu
   3. sum + length kullanımı
-*/
-/*
-//*cözüm2 reduce()
+*
 const notlar = [34, 56, 56, 87, 90];
 
-const ort = notlar.reduce((toplam, not) => toplam + not, 0) / notlar.length;
-console.log("Ortalama:", ort);
+// for dongusu
+let toplamFor = 0;
+for (let i = 0; i < notlar.length; i++) {
+  toplamFor += notlar[i];
+}
+ortalamaFor = toplamFor / notlar.length;
+console.log(ortalamaFor);
 
-//* sum + length kullanımı
-const sum = notlar.reduce((acc, n) => acc + n, 0);
-const ortalama = sum / notlar.length;
-console.log("Ortalama (sum + length):", ortalama);
-*/
-//! 2) Senaryo: kac kelimeden olustugunu bulalim
+// reduce()
+ortalama = notlar.reduce((toplam, not) => toplam + not, 0) / notlar.length;
+console.log(ortalama);
+
 /*
-let cümle = "Merhaba    Cohort     DE-11TR"
+  ! 2. Bir metinde kaç tane kelime vardır? (Birden fazla boşluğa dikkat!)
+*
 
-// Fazla boşlukları dikkate alarak kelime sayısını bulma
-let kelimeSayisi = cümle.trim().split(/\s+/).length;
-console.log("Kelime sayısı:", kelimeSayisi);
-*/
-//! 3) Senaryo: Bir cümlede "ondia" kelimesini bul ve konumunu söyle
+let cumle = "Merhaba     Cohort      DE-11TR";
+const kelimeSayisi = cumle.split(/\s+/).length;
+console.log(cumle.split(/\s+/));
+console.log(kelimeSayisi);
+
 /*
-const yazi = "I found Ondia at 3!"
+  ! 3. Bir cümlede "Ondia" kelimesini bul ve konumunu söyle.
+  Yoksa mesaj yazdır.
+  
+  Örnek:
+  - "I like Ondia" → "I found Ondia at 3!"
+  - "I like bootcamps" → "I can't find Ondia :("
+*
 
-const bul = (yazi) => {
-    const kelime = "Ondia";
+function findOndia(cumle, arananKelime) {
+  const kelimeler = cumle.toLowerCase().split(" ");
+  //   const arananKelime = "ondia";
+  if (kelimeler.includes(arananKelime)) {
+    const konum = kelimeler.indexOf(arananKelime) + 1;
+    return `I found Ondia at ${konum}`;
+  } else {
+    return `I can not fund ${arananKelime}!`;
+  }
+}
 
-    const index = yazi.toLowerCase().indexOf(kelime.toLowerCase());
-    if (index !== -1) {
-        console.log(`I found ${kelime} at ${index}`);
-    } else {
-        console.log(`I cant find ${kelime}`);
+console.log(findOndia("I like Ondia", "ondia"));
+console.log(findOndia("Life is good", "ondia"));
+
+/*
+  ! 4. Bir dizideki tekrarlayan elemanları kaldır, yalnızca benzersiz değerleri tut.
+  
+  Örnekler:
+  - [1, 0, 1, 0, 1] → [1, 0]
+  - ["the", "small", "cat", "the", "cat"] → ["the", "small", "cat"]
+*
+
+// for...of
+function removeDuplicate1(arr) {
+  const uniqueArr = [];
+
+  for (const item of arr) {
+    if (!uniqueArr.includes(item)) {
+      // console.log('icermiyor', item);
+      uniqueArr.push(item);
     }
+  }
+  return uniqueArr;
+}
+console.log(removeDuplicate1([1, 0, 1, 0, 2]));
+
+// filter
+function removeDuplicate2(arr) {
+  //   return arr.indexOf(0);
+  return arr.filter((value, index) => arr.indexOf(value) === index);
+}
+console.log(removeDuplicate2([1, 0, 1, 0, 2]));
+
+// array, object , set, string, number
+// set (modern ve daha hizli)
+function removeDuplicate3(arr) {
+  return [...new Set(arr)];
 }
 
-bul(yazi);
-*/
+console.log(removeDuplicate3([1, 0, 1, 0, 2]));
+
 /*
-const cümle ="ben JavaScript ögreniyoprum"
-const bul = (yazi) =>{
+  ! 5. Bir dizi içinden belirli harfle başlayan öğeleri seç.
+  
+  Örnek: "A" ile başlayanlar: ["Apple", "Banana", "Orange", "Avocado", "Grape", "Apricot"];
+*
 
-    const kelime ="JavaScript";
+const fruits = ["Apple", "Banana", "Orange", "Avocado", "Grape", "Apricot"];
 
-    console.log(yazi.toLowerCase().search(kelime.toLowerCase()));
+// for..of
+function filterByLetter(arr, letter) {
+  const filteredFruits = [];
+  for (const item of arr) {
+    if (item.toUpperCase().startsWith(letter.toUpperCase())) {
+      filteredFruits.push(item);
+    }
+  }
+  return filteredFruits;
 }
 
-bul(cümle);*/
+console.log(filterByLetter(fruits, "a"));
 
-//! 4) Senaryo: Bir dizideki tekrarlayan elemanlari kaldir, yalnizca benzersiz degerleri bul.
-/*
-const dizi= [3,5,3,7,5];
+// filter
 
-
-// Yöntem 1: Set ile
-const benzersiz1 = [...new Set(dizi)];
-console.log("Benzersiz (Set):", benzersiz1);
-
-// Yöntem 2: filter ve indexOf ile
-function removeDublicate2(arr){
-    return arr.filter((deger,index) => arr.indexOf(deger) === index)
+function filterByLetter1(arr, letter) {
+  return arr.filter((item) => item[0].toLowerCase() === letter.toLowerCase());
 }
 
-*/
+console.log(filterByLetter1(fruits, "a"));
 
-//! 5) 5. Bir dizi içinden belirli harfle başlayan öğeleri seç.
 /*
-const dizi = ["Apple", "Banana", "Orange", "Avocado", "Grape", "Apricot"];
-
-function removeDublicate2(arr,harf){
-    return arr.filter((deger) => deger[0].toLowerCase() === harf.toLowerCase())
-}
-
-console.log(removeDublicate2(dizi,"A"));
-*/
-//! 6)
-/*
+  ! 6.
   a) Maaşlara %10 zam yapılıyor. Kaç kişi zam sonrası 20000 TL altında kalıyor?
   b) 20000 altında kalanları 20000'e tamamlamak için ne kadar bütçe gerekli?
-  */
+  
+  Örnek maaşlar: [18000, 13000, 17000, 24000, 18500, 21000, 19300]
+*
 
- const maaslar = [18000, 13000, 17000, 24000, 18500, 21000, 19300]
+const maaslar = [18000, 13000, 17000, 24000, 18500, 21000, 19300];
 
-// a) Maaşlara %10 zam yapılıyor. Kaç kişi zam sonrası 20000 TL altında kalıyor?
- 
-const yeni = maaslar.map(m => (m + (m * 0.1)));
-const altindaKalanlar = yeni.filter(m => m < 20000);
-console.log(altindaKalanlar.length);
-console.log(altindaKalanlar);
+// a)
+const zamli_maaslar = maaslar.map((m) => m * 1.1);
+const garibanlar = zamli_maaslar.filter((m) => m < 20000);
+const garibanSayilari = garibanlar.length;
+// const garibanSayilari = maaslar.map((m) => m * 1.1).filter((m) => m < 20000).length
+console.log(garibanSayilari);
 
+// b)
+// console.log(garibanlar);
+const toplamButce = garibanlar
+  .map((m) => 20000 - m)
+  .reduce((toplam, m) => toplam + m, 0);
+console.log(
+  toplamButce.toLocaleString("tr-TR", { style: "currency", currency: "TRY" })
+);
 
-// b) 20000 altında kalanları 20000'e tamamlamak için ne kadar bütçe gerekli?
+/*
+  ! 7. Bir dizi içindeki asal sayıları filtrele.
+  Asal sayı: 1'den büyük, sadece 1 ve kendisine bölünen sayı
+  
+  Örnek: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] → [2, 3, 5, 7]
+*/
 
-const eksik = altindaKalanlar.map(m => 20000 - m).reduce((acc, m) => acc + m, 0);
-console.log(eksik);
-
-
-//! 7)
-
+// Todo
 
 /*
   ! 8. Bir kişinin bilgilerini objede saklayıp işlemler yapalım.
+  
+  islemler:
   - Obje bilgilerini yazdırma
+    Örnek: İsim, yaş, şehir, hobiler (dizi) içeren obje
   - Hobileri listelemek
   - Yeni hobi ekleme
   - Yaşı 1 arttırma (doğum günü)
   - Yeni özellik ekleme
-  Örnek: İsim, yaş, şehir, hobiler (dizi) içeren obje
 
 */
 
@@ -159,30 +209,200 @@ const kisi = {
   meslek: "Yazılımcı",
 };
 
-// Obje bilgilerini yazdırma
-for (let key in kisi) {
-  console.log(key + ":", kisi[key]);
+//* Obje bilgilerini yazdırma
+// console.log(kisi.isim);
+// console.log(kisi["isim"]);
+for (const key in kisi) {
+  console.log(`${key}: ${kisi[key]}`);
 }
 
-// Hobileri listelemek
-
-kisi.hobiler.forEach(hobi => {
-    console.log(hobi);  
+// * Hobileri listelemek
+kisi.hobiler.forEach((hobi, index) => {
+  console.log(`  ${index + 1}. ${hobi}`);
 });
 
-// Yeni hobi ekleme
-kisi.hobiler.push("kosmak");
-console.log(kisi.hobiler);
+//* Yeni hobi ekleme
+kisi.hobiler.push("resim çizme");
+console.log("Yeni hobiler:", kisi.hobiler);
 
-// Yaşı 1 arttırma (doğum günü)
-
+//* Yaşı 1 arttırma (doğum günü)
 kisi.yas++;
-console.log(kisi.yas);
+console.log("Yeni yaş:", kisi.yas);
 
-// Yeni özellik ekleme
+//* Yeni özellik ekleme
+kisi.email = "ahmet@example.com";
+console.log("Email eklenmiş hali:", kisi);
 
-kisi.email="dhjdh@gmail.com"
-console.log(kisi);
+/*
+  ! 9. Birden fazla öğrencinin bilgilerini obje dizisinde saklayalım.
+  Her öğrenci: isim, not, şehir
+  
+  İşlemler:
+  - Tüm öğrencileri listele
+  - Not ortalamasını bul
+  - Geçenleri/kalanları ayır
+  - Belirli şehirdeki öğrencileri bul
+*/
+
+const ogrenciler = [
+  { isim: "Lee", not: 85, sehir: "İstanbul" },
+  { isim: "Ayşe", not: 92, sehir: "Ankara" },
+  { isim: "Mehmet", not: 45, sehir: "İzmir" },
+  { isim: "Fatma", not: 78, sehir: "İstanbul" },
+  { isim: "Zeynep", not: 34, sehir: "Bursa" },
+];
+
+//* Tüm öğrencileri listele
+ogrenciler.forEach((item)=> console.log(item.isim)
+)
+
+//* Not ortalaması
+
+const sonuc = ogrenciler.map(item=> item.not).reduce((acc,not)=>acc+not,0)/ogrenciler.length;
+console.log(sonuc);
+
+//* Geçen öğrenciler (50+)
+ogrenciler.filter((item)=> item.not>50).forEach((item)=> console.log(item.isim));
+
+
+//* Kalan öğrenciler
+ogrenciler.filter((item)=> item.not<50).forEach((item)=> console.log(item.isim));
+
+//* İstanbul'daki öğrenciler
+
+//* En yüksek notu alan
+
+
+
+/*
+  ! 10. E-ticaret sepet sistemi
+  Her ürün: ad, fiyat, adet
+  
+  İşlemler:
+  - Toplam sepet tutarı
+  - En pahalı ürün
+  - Toplam ürün adedi
+*/
+
+const sepet = [
+  { urun: "Laptop", fiyat: 15000, adet: 1 },
+  { urun: "Mouse", fiyat: 250, adet: 2 },
+  { urun: "Klavye", fiyat: 800, adet: 1 },
+  { urun: "Monitör", fiyat: 3500, adet: 2 },
+];
+
+//* Toplam sepet tutarı
+
+//* En pahalı ürün
+
+//* Toplam ürün adedi
+
+//* KDV eklenmiş fiyatlar (%20)
+
+/*
+  ! 11. Şirket çalışanları ve maaşları
+  Her çalışan: isim, departman, maaş, yıl (çalışma süresi)
+  
+  İşlemler:
+  - Departmana göre gruplama
+  - Maaş istatistikleri
+  - Kıdem zammı hesaplama
+*/
+
+const calisanlar = [
+  { isim: "Ahmet", departman: "IT", maas: 15000, yil: 5 },
+  { isim: "Ayşe", departman: "HR", maas: 12000, yil: 3 },
+  { isim: "Mehmet", departman: "IT", maas: 18000, yil: 7 },
+  { isim: "Fatma", departman: "Sales", maas: 13000, yil: 2 },
+  { isim: "Ali", departman: "IT", maas: 16000, yil: 4 },
+  { isim: "Zeynep", departman: "HR", maas: 14000, yil: 6 },
+];
+
+//* IT departmanındaki çalışanlar
+
+//* IT departmanı ortalama maaş
+
+//* 5 yıldan fazla çalışanlar (kıdemli)
+
+//* Kıdem zammı: her yıl için %2
+
+//* En yüksek maaşlı çalışan
+
+//* Toplam maaş bütçesi
+
+/*
+  ! 12. Restoran menüsü ve sipariş sistemi
+  Her yemek: ad, kategori, fiyat, malzemeler (dizi)
+*/
+
+const menu = [
+  {
+    ad: "Margherita Pizza",
+    kategori: "Ana Yemek",
+    fiyat: 120,
+    malzemeler: ["hamur", "domates", "mozzarella", "fesleğen"],
+  },
+  {
+    ad: "Tavuk Şiş",
+    kategori: "Ana Yemek",
+    fiyat: 95,
+    malzemeler: ["tavuk", "soğan", "biber", "baharatlar"],
+  },
+  {
+    ad: "Sezar Salata",
+    kategori: "Salata",
+    fiyat: 65,
+    malzemeler: ["marul", "kruton", "parmesan", "sos"],
+  },
+  {
+    ad: "Tiramisu",
+    kategori: "Tatlı",
+    fiyat: 55,
+    malzemeler: ["mascarpone", "kahve", "biskuit"],
+  },
+  {
+    ad: "İçecek",
+    kategori: "İçecek",
+    fiyat: 15,
+    malzemeler: ["kola", "fanta", "sprite"],
+  },
+];
+
+//* Kategoriye göre listele
+
+//* En ucuz ve en pahalı yemek
+
+//* Belirli malzeme içeren yemekler
+
+//* Ortalama yemek fiyatı
+
+//* Örnek sipariş (herbir siparise ozel tutar ve toplam tutar)
+const siparis = [
+  { yemek: menu[0], adet: 2 },
+  { yemek: menu[2], adet: 1 },
+  { yemek: menu[3], adet: 2 },
+];
+
+/*
+  ! 13. Öğrenciler ve her birinin ders notları
+  Her öğrenci: isim, notlar (obje: matematik, fizik, kimya)
+*/
+
+const sinif = [
+  { isim: "Ali", notlar: { matematik: 85, fizik: 78, kimya: 92 } },
+  { isim: "Ayşe", notlar: { matematik: 95, fizik: 88, kimya: 90 } },
+  { isim: "Mehmet", notlar: { matematik: 65, fizik: 72, kimya: 68 } },
+  { isim: "Fatma", notlar: { matematik: 78, fizik: 85, kimya: 82 } },
+];
+
+//* Her öğrencinin ortalaması
+
+//* Matematik notlarının ortalaması
+
+//* En yüksek fizik notu
+
+//* Tüm derslerde 80+ alan öğrenciler
+
 
 
 
