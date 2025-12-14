@@ -37,7 +37,7 @@ equalButtons.onclick = () => {
 
 const ekranaHazirlik = (number) => {
     altEkranSayi = number;
-    altEkranDiv.textContent = altEkranSayi;
+    updateEkran("");
 };
 
 //!BURADA YAPILANLARI EKRANA BASTIR
@@ -129,7 +129,22 @@ aC.onclick = () => {
 
 }
 
+
 //? PM butonuna basıldığında
+pm.onclick = () => {
+    if (altEkranSayi !== "") {
+        altEkranSayi = String(Number(altEkranSayi) * -1);
+        updateEkran("");
+    }
+}
 
-
-//?percent % butonuna basıldığında
+//? percent % butonuna basıldığında
+const percentBtn = document.querySelector('.percent');
+if (percentBtn) {
+    percentBtn.onclick = () => {
+        if (altEkranSayi !== "") {
+            altEkranSayi = String(Number(altEkranSayi) / 100);
+            updateEkran("");
+        }
+    }
+}
