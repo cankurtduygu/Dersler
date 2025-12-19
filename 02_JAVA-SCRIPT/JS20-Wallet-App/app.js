@@ -57,6 +57,8 @@ const diziKaydet = () => {
   //!!!!!!localStorage a kaydet
   localStorage.setItem("einkaufen", JSON.stringify(dizi));
 }
+
+
 const ekranaYazdirma = () => {
   harcamaBody.innerHTML = ""; // tabloyu temizle
   dizi.forEach((item,index) => {
@@ -66,23 +68,31 @@ const ekranaYazdirma = () => {
             <td>${item.miktar}</td>
             <td><i class="fa fa-trash fa-lg" data-index="${index}"></i></td>
           </tr>`
+  })
+};
 
+
+const silmek =()=>{
 harcamaBody.addEventListener("click", function(e) {
   if (e.target.classList.contains("fa-trash")) {
   
-    e.target.closest("tr").remove(); // ekrandan silmek için
+    // e.target.closest("tr").remove(); // ekrandan silmek için
     const index = Number(e.target.getAttribute("data-index"));
     dizi.splice(index,1); //diziden sil
     localStorage.setItem("einkaufen", JSON.stringify(dizi)); // localStorage güncelle
     ekranaYazdirma();
+    kalanHesapla();
+
   }
 });
+}
 
 
-  })
-};
+
 
 ekranaYazdirma();
 kalanHesapla();
+silmek();
+
 
 
