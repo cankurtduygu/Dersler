@@ -1,6 +1,6 @@
 //* ===================================================
 //*                 Checkout Page Solution
-//*  map filter, dest,spread ===================================================
+//*  map filter, dest,spread ==========================
 
 //!table de kullanilacak degiskenler
 
@@ -15,26 +15,16 @@ let sepettekiler = [
     { name: "Antique Clock", price: 69.99, piece: 1, img: "./img/photo3.jpg" },
 ];
 
-//locala kaydetmek istersek ve ordancekmek istersek
-localStorage.setItem("LIST",JSON.stringify(sepettekiler))
-const liste = localStorage.getItem("LIST")
-console.log(liste);
 
+//! DOM'a YAZMAK (EKRANA BASTIRMAK)
 
+sepettekiler.forEach((ürün)=>{
+  const {name, price, piece, img } = ürün;
 
-//!EKRANA BASTIRMA DOM'A YAZDIRMA
-
-sepettekiler.forEach((ürün) => {
-    // console.log(ürün.name);sürekli ürün.name yapmamak icin destructuring(kisayol teknikleri uzun yapmak yerine) yapip direk icinde bunlar var diye söyleyebilirim.
-
-    const { name, price, piece, img } = ürün;
-
-    //burda += ile yapmasayim sadece sonuncuyu görürdüm cünkü hep üzerine yazardi eklemeden.
-    document.querySelector("#product-rowlari").innerHTML += `<div class="card mb-3" style="max-width: 540px;">
-
-  <div class="row ">
-
-    <div class=" col-md-5">
+  const card = document.querySelector(".card");
+  const div = document.createElement("div");
+  div.className = "row"
+  div.innerHTML = `<div class=" col-md-5">
       <img src=${img} class=" w-100 rounded-start" alt="...">
     </div>
 
@@ -78,108 +68,38 @@ sepettekiler.forEach((ürün) => {
                     </span>
                   </div>
       </div>
-    </div>
-  </div>
-</div>`;
+    </div>`
 
+    card.appendChild(div);
 })
 
-
-//? en alttaki  hesaplama fonksiyonu
-
-hesaplaCardTotal();
-
-//! REMOVE BUTONU ILE SILME ISLEMI
-document.querySelectorAll(".remove-product").forEach((btn) => {
-  btn.onclick = () => {
-   
-   
-   sil(btn)
-   
+//?en alttaki hesaplama fonksiyonu
+hesaplaCardTotal()
 
 
-  };
-});
+//remove ile silme islemi
 
+const removeProduct = document.querySelectorAll(".remove-product");
 
-const sil=(btn)=>{
-  //  console.log(btn.closest(".card-body").querySelector("h5"));
-  // btn.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+removeProduct.forEach((btn)=>{
+  btn.onclick=()=>{
+    btn.closest(".row").remove();
 
-  //*ekrandan sildik
-  btn.closest(".card").remove();
+    hesaplaCardTotal();
 
-  hesaplaCardTotal();
-
-  //* ekrandan silinen ürünü diziden de sil
-
-  sepettekiler = sepettekiler.filter(
-    (a) => a.name != btn.closest(".card-body").querySelector("h5").textContent
-  );
-}
-
-
-//! ADET DEGISTIRME
-
-document.querySelectorAll(".piece-controller").forEach((kutu => {
-
-    //!ekrandakiler
-    const plus = kutu.lastElementChild;
-    const minus = kutu.firstElementChild;
-    const adet = kutu.children[1];
-
-
-
-    plus.onclick = () => {
-        //*ekranda degisiklik
-        adet.textContent = Number(adet.textContent) + 1;
-
-        //dizide degisiklik maple dizideki degisiklk mapla deizide dolas sart ve uyan eslesen elemanin adetini degistir
-
-
-        //* her card da bulunan 
-        plus.closest(".card-body").querySelector(".product-total").textContent = plus.closest(".card-body").querySelector(".indirim-price").textContent * adet.textContent
-
-        hesaplaCardTotal();
-    }
-
-
+    //silinen ürünü diziden de sil
+    console.log(btn.closest(".card-body").querySelector("h5"));
     
+  sepettekiler = sepettekiler.filter((ürün)=> ürün.name != btn.closest(".card-body").querySelector("h5").textContent);
+  console.log(sepettekiler);
+    
+  }
+  
+})
 
-        minus.onclick = () => {
-           
-            adet.textContent = Number(adet.textContent) - 1;
+function hesaplaCardTotal(){
 
-            //* her card da bulunan ürün toplami güncelle burda minus da olsa plus da olsa sikinti olmaz
-            plus.closest(".card-body").querySelector(".product-total").textContent = plus.closest(".card-body").querySelector(".indirim-price").textContent * adet.textContent
-
-            hesaplaCardTotal();
-
-
-            //!eger adet 1 iken minus basilirsa ürün silinsin
-
-            //!eğer adet 1 iken minus a basılırsa ürün silinsin
-if(adet.textContent < 1){
-    alert("sileyim mi?")
-
-sil(minus)
-
-
-}
-
-    } 
-
-
-
-}))
-
-
-
-
-function hesaplaCardTotal() {
-
-
-    //!card toplam degerlerini hesapla ve güncelleme table'i
+  //!card toplam degerlerini hesapla ve güncelleme table'i
 
     //!   querySelectorAll(), statik bir NodeList döndürür.
     //!burada netten https://softauthor.com/javascript-htmlcollection-vs-nodelist/ 
@@ -190,18 +110,35 @@ function hesaplaCardTotal() {
 
     // console.log(document.querySelectorAll(".product-total")); Nodelist getirir yani icinde spanlar olan bir nodelist
 
-    //* Üürnlerin ekrandaki fiyatlarini hesapladik
-    const productFiyatlarToplami = Array.from(document.querySelectorAll(".product-total")).reduce((toplam, fiyat) => toplam + Number(fiyat.textContent), 0)
-
-    // console.log(productFiyatlarToplami);
-
-    document.querySelector(".productstoplam").textContent = productFiyatlarToplami;
-
-    document.querySelector(".vergi").textContent = productFiyatlarToplami * tax;
+     //* Üürnlerin ekrandaki fiyatlarini hesapladik
+const productTotal = Array.from(document.querySelectorAll(".product-total"));
+const productFiyatlarToplami = productTotal.reduce((toplam, fiyat) => toplam + Number(fiyat.textContent), 0);
 
 
-    document.querySelector(".kargo").textContent = shipping;
+//* fiyat toplamini ekrana bastirdik
+const productstoplam = document.querySelector(".productstoplam");
+productstoplam.textContent = productFiyatlarToplami;
 
-    document.querySelector(".toplam").textContent = productFiyatlarToplami + productFiyatlarToplami * tax + shipping;
+document.querySelector(".vergi").textContent = productFiyatlarToplami*tax;
+
+document.querySelector(".kargo").textContent = productFiyatlarToplami>0 ? shipping: 0;
+
+document.querySelector(".toplam").textContent = productFiyatlarToplami + productFiyatlarToplami*tax + shipping;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
