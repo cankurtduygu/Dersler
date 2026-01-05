@@ -51,3 +51,6 @@ new Promise((resolve, reject) => {
 // //*daha tercih edilenler
 // //! 3- Fetch API (Promise'in basitlestirilmis hali zincir(chain)),
 // //! 4- ASYNC-AWAIT (Fetch API'nin chain dışında makyajlanmış hali)
+
+
+
