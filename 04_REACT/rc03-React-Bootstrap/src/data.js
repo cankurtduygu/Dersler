@@ -17,6 +17,7 @@
     text: "Welcome to Our JS Course",
     img: "https://www.seekpng.com/png/full/80-803501_javascript-logo-logo-de-java-script-png.png",
   },
+  
 ];
 
  export default data;
