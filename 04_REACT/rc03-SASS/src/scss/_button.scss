@@ -1,0 +1,28 @@
+@import '../scss/variable';
+.btn-div{
+    button{
+        border: none;
+        border-radius: 1rem;
+        margin: 1rem;
+        color: white;
+        font-size: 30px;
+
+        &:hover{
+            cursor: pointer;
+            opacity: 0.5;
+        }
+    }
+    &--small{
+       
+            background-color: $yesil;
+            padding: 0.6rem;
+       
+    }
+
+    &--large{
+       
+            background-color: $turuncu;
+            padding: 1rem;
+       
+    }
+}
