@@ -2,7 +2,9 @@ import "./App.css";
 import Events from "./1-events-hookIntro/Events";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Hooks from "./2-functionalComponents/Hooks";
-import Counters from "./2-classComponents/Counters";
+import Form from "./3-form/Form";
+import FormObject from "./3-form/FormObject";
+
 
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
     <div>
       {/* <Events /> */}
       {/* <Hooks /> */}
-      <Counters />
+      {/* <Form /> */}
+      <FormObject />
+  
  
 
     </div>
