@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Hooks from "./2-functionalComponents/Hooks";
 import Form from "./3-form/Form";
 import FormObject from "./3-form/FormObject";
+import MouseEvents from "./4-mouseEvents/MouseEvents";
+
 
 
 
@@ -18,10 +20,9 @@ function App() {
       {/* <Events /> */}
       {/* <Hooks /> */}
       {/* <Form /> */}
-      <FormObject />
+      {/* <FormObject /> */}
+      <MouseEvents />
   
- 
-
     </div>
   );
 }
